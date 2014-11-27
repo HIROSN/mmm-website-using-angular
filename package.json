@@ -1,0 +1,19 @@
+{
+  "name": "mmm-website-using-angular",
+  "version": "1.0.0",
+  "description": "Create a mean/median/mode website using angular.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/grunt-cli/bin/grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HIROSN/mmm-website-using-angular.git"
+  },
+  "author": "hirosn@live.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HIROSN/mmm-website-using-angular/issues"
+  },
+  "homepage": "https://github.com/HIROSN/mmm-website-using-angular"
+}
