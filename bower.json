@@ -1,0 +1,22 @@
+{
+  "name": "mmm-website-using-angular",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/HIROSN/mmm-website-using-angular",
+  "authors": [
+    "Hiroshi Nagata <hirosn@live.com>"
+  ],
+  "description": "Create a mean/median/mode website using angular.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.4"
+  }
+}
