@@ -6,8 +6,22 @@
     <title>mean, median and mode</title>
     <link rel="stylesheet" href="stylesheet.css"/>
   </head>
-  <body ng-controller="MeanMedianModeController as mmm">
+  <body>
     <h2>mean, median and mode</h2>
+    <form name="mmmForm"
+      ng-controller="MeanMedianModeController as mmmCtrl"
+      ng-submit="mmmCtrl.post()"
+      novalidate>
+      <div>Numbers (comma delimited):</div>
+      <div><input type="text" name="numbers"
+        ng-model="mmmCtrl.numbers"
+        ng-change="mmmCtrl.results.mean &amp;&amp; mmmCtrl.post()"
+        required></div>
+      <div><input type="submit" value="calculate"></div>
+      <div ng-show="mmmCtrl.results.mean">Mean: {{mmmCtrl.results.mean}}</div>
+      <div ng-show="mmmCtrl.results.median">Median: {{mmmCtrl.results.median}}</div>
+      <div ng-show="mmmCtrl.results.mode">Mode: {{mmmCtrl.results.mode}}</div>
+    </form>
     <script src="bundle.js"></script>
   </body>
 </html>
