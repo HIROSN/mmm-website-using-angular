@@ -7,20 +7,19 @@
     return $resource('/api');
   });
 
-  app.controller('MeanMedianModeController', function(MmmFactory) {
-    var self = this;
-    self.numbers = '';
-    self.results = {};
+  app.controller('MeanMedianModeController', function($scope, MmmFactory) {
+    $scope.numbers = '';
+    $scope.results = {};
 
-    this.post = function() {
-      self.results = {};
-      if (!self.numbers) { return; }
+    this.getResults = function() {
+      $scope.results = {};
+      if (!$scope.numbers) { return; }
 
       MmmFactory.get({
-        numbers: self.numbers.split(',')
+        numbers: $scope.numbers.split(',')
       }).
       $promise.then(function(data) {
-        self.results = data;
+        $scope.results = data;
       });
     };
   });

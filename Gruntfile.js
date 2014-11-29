@@ -5,7 +5,8 @@ module.exports = function(grunt) {
     '**/*.js',
     '!node_modules/**/*',
     '!bower_components/**/*',
-    '!public/**/*'
+    '!public/**/*',
+    '!test/browser/**/*'
   ];
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
