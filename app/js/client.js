@@ -1,23 +1,17 @@
 'use strict';
 
 (function() {
-  var app = angular.module('meanMedianMode', []);
+  var app = angular.module('Application', ['ngResource']);
 
-  app.controller('MeanMedianModeController', ['$http', function($http) {
-    var self = this;
-    self.numbers = '';
-    self.results = {};
+  app.factory('UserFactory', function($resource) {
+    return $resource('/users.json');
+  });
 
-    this.post = function() {
-      self.results = {};
-      if (!self.numbers) { return; }
+  app.controller('MainCtrl', function($scope, UserFactory) {
+    $scope.text = 'Hello World!';
 
-      $http.post('/api', {
-        numbers: self.numbers.split(',')
-      }).
-      success(function(data) {
-        self.results = data;
-      });
-    };
-  }]);
+    UserFactory.get().$promise.then(function(data) {
+      $scope.users = data.users;
+    });
+  });
 })();
