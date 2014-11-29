@@ -49,9 +49,16 @@ module.exports = function(grunt) {
         dest: 'public/'
       },
 
-      map: {
+      map1: {
         cwd: 'bower_components/angular/',
         src: ['**/angular.min.js.map'],
+        expand: true,
+        dest: 'public/'
+      },
+
+      map2: {
+        cwd: 'bower_components/angular-resource/',
+        src: ['**/angular-resource.min.js.map'],
         expand: true,
         dest: 'public/'
       }
@@ -61,6 +68,7 @@ module.exports = function(grunt) {
       dev: {
         src: [
           'bower_components/angular/angular.min.js',
+          'bower_components/angular-resource/angular-resource.min.js',
           'app/js/**/*.js'
         ],
         dest: 'public/bundle.js',

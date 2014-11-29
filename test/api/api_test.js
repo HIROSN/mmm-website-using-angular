@@ -10,7 +10,7 @@ chai.use(require('chai-http'));
 describe('API tests', function() {
   it('should return status 500 for empty request', function(done) {
     chai.request(server).
-    post('/api').
+    get('/api').
     end(function(err, res) {
       expect(err).equals(null);
       expect(res).to.be.a('object');
@@ -19,21 +19,9 @@ describe('API tests', function() {
     });
   });
 
-  it('should return status 400 for non-array', function(done) {
-    chai.request(server).
-    post('/api').
-    send({numbers: '5, 5, 6, 7'}).
-    end(function(err, res) {
-      expect(err).equals(null);
-      expect(res).to.be.a('object');
-      expect(res).to.have.status(400);
-      done();
-    });
-  });
-
   it('should return accurate results', function(done) {
     chai.request(server).
-    post('/api').
+    get('/api').
     send({numbers: [5, 5, 6, 7]}).
     end(function(err, res) {
       expect(err).equals(null);

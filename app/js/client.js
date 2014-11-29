@@ -1,9 +1,13 @@
 'use strict';
 
 (function() {
-  var app = angular.module('meanMedianMode', []);
+  var app = angular.module('meanMedianMode', ['ngResource']);
 
-  app.controller('MeanMedianModeController', ['$http', function($http) {
+  app.factory('MmmFactory', function($resource) {
+    return $resource('/api');
+  });
+
+  app.controller('MeanMedianModeController', function(MmmFactory) {
     var self = this;
     self.numbers = '';
     self.results = {};
@@ -12,12 +16,12 @@
       self.results = {};
       if (!self.numbers) { return; }
 
-      $http.post('/api', {
+      MmmFactory.get({
         numbers: self.numbers.split(',')
       }).
-      success(function(data) {
+      $promise.then(function(data) {
         self.results = data;
       });
     };
-  }]);
+  });
 })();
