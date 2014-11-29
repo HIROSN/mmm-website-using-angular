@@ -11,14 +11,14 @@ require('angular');
     self.results = {};
 
     this.post = function() {
+      self.results = {};
+      if (!self.numbers) { return; }
+
       $http.post('/api', {
-        numbers: self.numbers && self.numbers.split(',')
+        numbers: self.numbers.split(',')
       }).
       success(function(data) {
         self.results = data;
-      }).
-      error(function() {
-        self.results = {};
       });
     };
   }]);

@@ -10,7 +10,7 @@
     <h2>mean, median and mode</h2>
     <form name="mmmForm"
       ng-controller="MeanMedianModeController as mmmCtrl"
-      ng-submit="mmmCtrl.post()"
+      ng-submit="mmmCtrl.numbers &amp;&amp; mmmCtrl.post()"
       novalidate>
       <div>Numbers (comma delimited):</div>
       <div><input type="text" name="numbers"
