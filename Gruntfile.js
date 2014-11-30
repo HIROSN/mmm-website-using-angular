@@ -68,8 +68,6 @@ module.exports = function(grunt) {
     browserify: {
       dev: {
         src: [
-          'bower_components/angular/angular.min.js',
-          'bower_components/angular-resource/angular-resource.min.js',
           'app/js/**/*.js'
         ],
         dest: 'public/bundle.js',
