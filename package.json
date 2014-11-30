@@ -32,7 +32,12 @@
     "grunt-contrib-copy": "^0.7.0",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-jscs": "^0.8.1",
+    "grunt-karma": "^0.9.0",
     "grunt-sass": "^0.16.1",
-    "grunt-simple-mocha": "^0.4.0"
+    "grunt-simple-mocha": "^0.4.0",
+    "jasmine-core": "^2.1.2",
+    "karma": "^0.12.28",
+    "karma-jasmine": "^0.3.2",
+    "karma-phantomjs-launcher": "^0.1.4"
   }
 }

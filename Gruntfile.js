@@ -16,6 +16,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig({
     jshint: {
@@ -93,6 +94,14 @@ module.exports = function(grunt) {
           'public/stylesheet.css': 'app/css/stylesheet.scss'
         }
       }
+    },
+
+    karma: {
+      continuous: {
+        configFile: 'karma.config.js',
+        singleRun: true,
+        browsers: ['PhantomJS']
+      }
     }
   });
 
@@ -103,6 +112,7 @@ module.exports = function(grunt) {
     'clean',
     'copy',
     'browserify',
-    'sass'
+    'sass',
+    'karma'
   ]);
 };
