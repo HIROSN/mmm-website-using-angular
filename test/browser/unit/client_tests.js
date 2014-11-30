@@ -1,5 +1,7 @@
 'use strict';
 
+require('angular-mocks');
+
 describe('MeanMedianModeController', function() {
   var $httpBackend;
   var scope;

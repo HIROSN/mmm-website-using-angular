@@ -74,6 +74,16 @@ module.exports = function(grunt) {
         options: {
           transform: ['debowerify']
         }
+      },
+
+      browsertest: {
+        src: [
+          'test/browser/unit/**/*.js'
+        ],
+        dest: 'test/browser/browser_test_bundle.js',
+        options: {
+          transform: ['debowerify']
+        }
       }
     },
 
