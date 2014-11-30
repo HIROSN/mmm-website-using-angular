@@ -1,5 +1,7 @@
 'use strict';
 
+require('angular');
+
 (function() {
   var app = angular.module('meanMedianMode', []);
 
