@@ -17,8 +17,8 @@
 
       MmmFactory.get({
         numbers: $scope.numbers.split(',')
-      }).
-      $promise.then(function(data) {
+      })
+      .$promise.then(function(data) {
         $scope.results = data;
       });
     };

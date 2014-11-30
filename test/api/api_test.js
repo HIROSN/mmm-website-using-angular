@@ -9,9 +9,9 @@ chai.use(require('chai-http'));
 
 describe('API tests', function() {
   it('should return status 500 for empty request', function(done) {
-    chai.request(server).
-    get('/api').
-    end(function(err, res) {
+    chai.request(server)
+    .get('/api')
+    .end(function(err, res) {
       expect(err).equals(null);
       expect(res).to.be.a('object');
       expect(res).to.have.status(500);
@@ -20,10 +20,10 @@ describe('API tests', function() {
   });
 
   it('should return accurate results', function(done) {
-    chai.request(server).
-    get('/api').
-    send({numbers: [5, 5, 6, 7]}).
-    end(function(err, res) {
+    chai.request(server)
+    .get('/api')
+    .send({numbers: [5, 5, 6, 7]})
+    .end(function(err, res) {
       expect(err).equals(null);
       expect(res).to.be.a('object');
       expect(res).to.have.status(200);
