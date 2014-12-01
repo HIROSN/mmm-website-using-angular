@@ -9,10 +9,7 @@ module.exports = function(app) {
       $scope.results = {};
       if (!$scope.numbers) { return; }
 
-      mmmService.get({
-        numbers: $scope.numbers.split(',')
-      })
-      .$promise.then(function(data) {
+      mmmService.getResults($scope.numbers.split(',')).then(function(data) {
         $scope.results = data;
       });
     };
