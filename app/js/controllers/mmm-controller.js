@@ -1,17 +1,19 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('mmmController', function($scope, mmmService) {
-    $scope.numbers = '';
-    $scope.results = {};
-
-    $scope.getResults = function() {
+  app.controller('mmmController', ['$scope', 'mmmService',
+    function($scope, mmmService) {
+      $scope.numbers = '';
       $scope.results = {};
-      if (!$scope.numbers) { return; }
 
-      mmmService.getResults($scope.numbers.split(',')).then(function(data) {
-        $scope.results = data;
-      });
-    };
-  });
+      $scope.getResults = function() {
+        $scope.results = {};
+        if (!$scope.numbers) { return; }
+
+        mmmService.getResults($scope.numbers.split(',')).then(function(data) {
+          $scope.results = data;
+        });
+      };
+    }]
+  );
 };
