@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('mmmController', function($scope, MmmFactory) {
+  app.controller('mmmController', function($scope, mmmService) {
     $scope.numbers = '';
     $scope.results = {};
 
@@ -9,7 +9,7 @@ module.exports = function(app) {
       $scope.results = {};
       if (!$scope.numbers) { return; }
 
-      MmmFactory.get({
+      mmmService.get({
         numbers: $scope.numbers.split(',')
       })
       .$promise.then(function(data) {

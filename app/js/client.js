@@ -5,10 +5,6 @@ require('angular-resource');
 
 (function() {
   var app = angular.module('meanMedianMode', ['ngResource']);
-
-  app.factory('MmmFactory', function($resource) {
-    return $resource('/api');
-  });
-
+  require('./services/mmm-service')(app);
   require('./controllers/mmm-controller')(app);
 })();
