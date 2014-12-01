@@ -19,9 +19,11 @@
           required></div>
         <div><input type="submit" value="calculate"></div>
       </form>
-      <div data-ng-show="results.mean">Mean: {{results.mean}}</div>
-      <div data-ng-show="results.median">Median: {{results.median}}</div>
-      <div data-ng-show="results.mode">Mode: {{results.mode}}</div>
+      <div data-ng-show="results.mean">
+        <div>Mean: {{results.mean}}</div>
+        <div>Median: {{results.median}}</div>
+        <div>Mode: {{results.mode}}</div>
+      </div>
     </div>
     <script src="bundle.js"></script>
   </body>
