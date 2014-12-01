@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="meanMedianMode">
+<html lang="en">
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,20 +7,22 @@
     <link rel="stylesheet" href="stylesheet.css"/>
   </head>
   <body>
-    <h2>mean, median and mode</h2>
-    <div data-ng-controller="mmmController">
-      <form name="mmmForm"
-        data-ng-submit="numbers &amp;&amp; getResults()"
-        novalidate>
-        <div>Numbers (comma delimited):</div>
-        <div><input type="text" name="numbers"
-          data-ng-model="numbers"
-          data-ng-change="results.mean &amp;&amp; getResults()"
-          required></div>
-        <div><input type="submit" value="calculate"></div>
-      </form>
-      <mmm-display data-ng-model="results" data-ng-show="results.mean">
-      </mmm-display>
+    <div data-ng-app="meanMedianMode">
+      <h2>mean, median and mode</h2>
+      <div data-ng-controller="mmmController">
+        <form name="mmmForm"
+          data-ng-submit="numbers &amp;&amp; getResults()"
+          novalidate>
+          <div>Numbers (comma delimited):</div>
+          <div><input type="text" name="numbers"
+            data-ng-model="numbers"
+            data-ng-change="results.mean &amp;&amp; getResults()"
+            required></div>
+          <div><input type="submit" value="calculate"></div>
+        </form>
+        <mmm-display data-ng-model="results" data-ng-show="results.mean">
+        </mmm-display>
+      </div>
     </div>
     <script src="bundle.js"></script>
   </body>
