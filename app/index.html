@@ -9,13 +9,13 @@
   <body>
     <h2>mean, median and mode</h2>
     <form name="mmmForm"
-      ng-controller="MeanMedianModeController as mmmCtrl"
-      ng-submit="numbers &amp;&amp; mmmCtrl.getResults()"
+      ng-controller="MeanMedianModeController"
+      ng-submit="numbers &amp;&amp; getResults()"
       novalidate>
       <div>Numbers (comma delimited):</div>
       <div><input type="text" name="numbers"
         ng-model="numbers"
-        ng-change="results.mean &amp;&amp; mmmCtrl.getResults()"
+        ng-change="results.mean &amp;&amp; getResults()"
         required></div>
       <div><input type="submit" value="calculate"></div>
       <div ng-show="results.mean">Mean: {{results.mean}}</div>

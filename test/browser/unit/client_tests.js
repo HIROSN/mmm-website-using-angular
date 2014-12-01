@@ -5,7 +5,6 @@ require('angular-mocks');
 describe('MeanMedianModeController', function() {
   var $httpBackend;
   var scope;
-  var controller;
 
   beforeEach(angular.mock.module('meanMedianMode'));
 
@@ -19,12 +18,12 @@ describe('MeanMedianModeController', function() {
     });
 
     scope = $rootScope.$new();
-    controller = $controller('MeanMedianModeController', {$scope: scope});
+    $controller('MeanMedianModeController', {$scope: scope});
   }));
 
   it('should get results', function() {
     scope.numbers = '1';
-    controller.getResults();
+    scope.getResults();
     $httpBackend.flush();
     expect(scope.results.mean).toBe(1);
     expect(scope.results.median).toBe(1);

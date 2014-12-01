@@ -14,7 +14,7 @@ require('angular-resource');
     $scope.numbers = '';
     $scope.results = {};
 
-    this.getResults = function() {
+    $scope.getResults = function() {
       $scope.results = {};
       if (!$scope.numbers) { return; }
 
