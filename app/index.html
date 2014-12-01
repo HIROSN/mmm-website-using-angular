@@ -19,11 +19,8 @@
           required></div>
         <div><input type="submit" value="calculate"></div>
       </form>
-      <div data-ng-show="results.mean">
-        <div>Mean: {{results.mean}}</div>
-        <div>Median: {{results.median}}</div>
-        <div>Mode: {{results.mode}}</div>
-      </div>
+      <mmm-display data-ng-model="results" data-ng-show="results.mean">
+      </mmm-display>
     </div>
     <script src="bundle.js"></script>
   </body>
