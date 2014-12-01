@@ -18,7 +18,7 @@ describe('MeanMedianModeController', function() {
     });
 
     scope = $rootScope.$new();
-    $controller('MeanMedianModeController', {$scope: scope});
+    $controller('mmmController', {$scope: scope});
   }));
 
   it('should get results', function() {
