@@ -8,20 +8,21 @@
   </head>
   <body>
     <h2>mean, median and mode</h2>
-    <form name="mmmForm"
-      ng-controller="MeanMedianModeController"
-      ng-submit="numbers &amp;&amp; getResults()"
-      novalidate>
-      <div>Numbers (comma delimited):</div>
-      <div><input type="text" name="numbers"
-        ng-model="numbers"
-        ng-change="results.mean &amp;&amp; getResults()"
-        required></div>
-      <div><input type="submit" value="calculate"></div>
+    <div ng-controller="MeanMedianModeController">
+      <form name="mmmForm"
+        ng-submit="numbers &amp;&amp; getResults()"
+        novalidate>
+        <div>Numbers (comma delimited):</div>
+        <div><input type="text" name="numbers"
+          ng-model="numbers"
+          ng-change="results.mean &amp;&amp; getResults()"
+          required></div>
+        <div><input type="submit" value="calculate"></div>
+      </form>
       <div ng-show="results.mean">Mean: {{results.mean}}</div>
       <div ng-show="results.median">Median: {{results.median}}</div>
       <div ng-show="results.mode">Mode: {{results.mode}}</div>
-    </form>
+    </div>
     <script src="bundle.js"></script>
   </body>
 </html>
