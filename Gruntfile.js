@@ -14,10 +14,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig({
@@ -42,15 +42,6 @@ module.exports = function(grunt) {
     clean: {
       dev: {
         src: ['build/', 'public/']
-      }
-    },
-
-    copy: {
-      dev: {
-        cwd: 'app/',
-        src: ['**/*.html'],
-        expand: true,
-        dest: 'public/'
       }
     },
 
@@ -92,6 +83,19 @@ module.exports = function(grunt) {
       }
     },
 
+    htmlmin: {
+      dist: {
+        files: {
+          'public/index.html': 'app/index.html',
+          'public/mmm-display.html': 'app/mmm-display.html'
+        },
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        }
+      }
+    },
+
     karma: {
       continuous: {
         configFile: 'karma.config.js',
@@ -106,10 +110,10 @@ module.exports = function(grunt) {
     'jscs',
     'simplemocha',
     'clean',
-    'copy',
     'browserify',
     'sass',
     'uglify',
+    'htmlmin',
     'karma'
   ]);
 };
