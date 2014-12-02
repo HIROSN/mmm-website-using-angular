@@ -1,14 +1,33 @@
 'use strict';
 
+require('../../../app/js/client');
 require('angular-mocks');
 
 describe('MeanMedianModeController', function() {
+  var $controllerConstructor;
   var $httpBackend;
-  var scope;
+  var $scope;
 
   beforeEach(angular.mock.module('meanMedianMode'));
 
-  beforeEach(angular.mock.inject(function($rootScope, $controller, _$httpBackend_) {
+  beforeEach(angular.mock.inject(function($rootScope, $controller) {
+    $scope = $rootScope.$new();
+    $controllerConstructor = $controller;
+  }));
+
+  it('should able to create a new controller', function() {
+    var mmmController = $controllerConstructor('mmmController', {
+      $scope: $scope
+    });
+
+    expect(typeof mmmController).toBe('object');
+  });
+
+  it('should get results', angular.mock.inject(function(_$httpBackend_) {
+    $controllerConstructor('mmmController', {
+      $scope: $scope
+    });
+
     $httpBackend = _$httpBackend_;
 
     $httpBackend.when('GET', '/api?numbers=1').respond({
@@ -17,16 +36,22 @@ describe('MeanMedianModeController', function() {
       mode: 1
     });
 
-    scope = $rootScope.$new();
-    $controller('mmmController', {$scope: scope});
-  }));
-
-  it('should get results', function() {
-    scope.numbers = '1';
-    scope.getResults();
+    $scope.numbers = '1';
+    $scope.getResults();
     $httpBackend.flush();
-    expect(scope.results.mean).toBe(1);
-    expect(scope.results.median).toBe(1);
-    expect(scope.results.mode).toBe(1);
-  });
+
+    expect($scope.results).toBeTruthy();
+    expect(typeof $scope.results).toBe('object');
+
+    expect($scope.results.mean).toBeDefined();
+    expect($scope.results.median).toBeDefined();
+    expect($scope.results.mode).toBeDefined();
+
+    expect($scope.results.mean).toBe(1);
+    expect($scope.results.median).toBe(1);
+    expect($scope.results.mode).toBe(1);
+
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  }));
 });
