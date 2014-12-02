@@ -5,6 +5,7 @@ module.exports = function(grunt) {
     '**/*.js',
     '!node_modules/**/*',
     '!bower_components/**/*',
+    '!build/**/*',
     '!public/**/*',
     '!test/browser/**/*'
   ];
@@ -16,6 +17,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig({
@@ -39,7 +41,7 @@ module.exports = function(grunt) {
 
     clean: {
       dev: {
-        src: ['public/']
+        src: ['build/', 'public/']
       }
     },
 
@@ -57,7 +59,7 @@ module.exports = function(grunt) {
         src: [
           'app/js/**/*.js'
         ],
-        dest: 'public/bundle.js',
+        dest: 'build/bundle.js',
         options: {
           transform: ['debowerify']
         }
@@ -82,6 +84,14 @@ module.exports = function(grunt) {
       }
     },
 
+    uglify: {
+      target: {
+        files: {
+          'public/bundle.js': ['build/bundle.js']
+        }
+      }
+    },
+
     karma: {
       continuous: {
         configFile: 'karma.config.js',
@@ -99,6 +109,7 @@ module.exports = function(grunt) {
     'copy',
     'browserify',
     'sass',
+    'uglify',
     'karma'
   ]);
 };
