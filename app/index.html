@@ -20,8 +20,10 @@
             required></div>
           <div><input type="submit" value="calculate"></div>
         </form>
-        <mmm-display data-ng-model="results" data-ng-show="results.mean">
-        </mmm-display>
+        <div data-mmm-display
+          data-ng-model="results"
+          data-ng-show="results.mean">
+        </div>
       </div>
     </div>
     <script src="bundle.js"></script>

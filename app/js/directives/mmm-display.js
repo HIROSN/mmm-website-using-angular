@@ -3,7 +3,7 @@
 module.exports = function(app) {
   app.directive('mmmDisplay', function() {
     return {
-      restrict: 'E',
+      restrict: 'A',
       templateUrl: 'mmm-display.html'
     };
   });
