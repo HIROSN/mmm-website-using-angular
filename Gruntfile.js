@@ -18,6 +18,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-css');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig({
@@ -70,7 +71,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          'public/stylesheet.css': 'app/css/stylesheet.scss'
+          'build/stylesheet.css': 'app/css/stylesheet.scss'
         }
       }
     },
@@ -96,6 +97,13 @@ module.exports = function(grunt) {
       }
     },
 
+    cssmin: {
+      target: {
+        src: 'build/stylesheet.css',
+        dest: 'public/stylesheet.css'
+      }
+    },
+
     karma: {
       continuous: {
         configFile: 'karma.config.js',
@@ -114,6 +122,7 @@ module.exports = function(grunt) {
     'sass',
     'uglify',
     'htmlmin',
+    'cssmin',
     'karma'
   ]);
 };
